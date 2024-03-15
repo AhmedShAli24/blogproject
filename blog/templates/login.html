@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% with messages = get_flashed_messages(category_filter=["error"]) %}
+{% if messages %}
+<div class="alert alert-danger" role="alert">
+    <ul class=flashes>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+  </div>
+{% endif %}
+{% endwith %}
+
+{% with messages = get_flashed_messages(category_filter=["success"]) %}
+{% if messages %}
+<div class="alert alert-success" role="alert">
+    <ul class=flashes>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+  </div>
+{% endif %}
+{% endwith %}
+
+
+    <form method="POST">
+        {{form.hidden_tag()}}
+        {{form.email.label}}{{form.email}}
+        {{form.password.label}}{{form.password}}
+        {{form.submit()}}
+    </form>
+
+{% endblock  %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class ="container">
+    {% for post in blog_posts.items%}
+        <div class ="card"> 
+            <div class="card-body">
+                <h2><a class='card-title' href="{{url_for("blog_posts.blog_post", blog_post_id=post.id)}}">{{post.title}}</a></h2>
+                <h3><a href="{{url_for("users.user_post", username = post.author.usename)}}"> Posted by: {{post.author.usename}}</a></h3>
+                <p> published on: {{post.date.strftime('%Y-%m-%d')}}</p>
+                <a  class="btn btn-primary" href ="{{url_for("blog_posts.blog_post", blog_post_id=post.id)}}"> Read Blog Post</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+
+<nav aria-label='Page Navigation example'>
+    <ul class='pageination justify-content-center'>
+        <div class="container">
+            {% for post in blog_posts.items %}
+                <div class="blog-post">
+                    <p>{{ post.content }}</p>
+                    <!-- Add other post details as needed -->
+                </div>
+            {% endfor %}
+            
+            <!-- Pagination links -->
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    {% if blog_posts.has_prev %}
+                        <li class="page-item"><a class="page-link" href="{{ url_for('core.index', page=blog_posts.prev_num) }}">Previous</a></li>
+                    {% endif %}
+                    {% if blog_posts.has_next %}
+                        <li class="page-item"><a class="page-link" href="{{ url_for('core.index', page=blog_posts.next_num) }}">Next</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </ul>
+</nav>
+{%endblock%}
