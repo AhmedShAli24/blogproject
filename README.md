@@ -13,7 +13,7 @@
 
 
 ## Requirments 
-    You do need to have python and flask downloaded on your local machine
+  You do need to have python and flask downloaded on your local machine
 
 ## Running the Project
 
