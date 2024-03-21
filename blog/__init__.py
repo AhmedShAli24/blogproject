@@ -9,7 +9,7 @@ load_dotenv()
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = "hello"
+app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
 app.app_context().push()
 
 ############################
