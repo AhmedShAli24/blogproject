@@ -17,8 +17,8 @@
 
 ## Running the Project
 
-1. clone the repository to your local machine
-2. pip install -r requirments.txt
-3. python app.py
+1. Clone the repository to your local machine with Git using this command: `git clone https://github.com/AhmedShAli24/blogproject.git`
+2. `pip install -r requirments.txt`
+3. `python app.py`
 
 In your terminal you should be able to see http://127.0.0.1:5000 and click on it 
